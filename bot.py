@@ -27,8 +27,8 @@ STATE_NAME, STATE_REQUEST, STATE_TIME = range(3)
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     await update.message.reply_text(
-        "Привет! Я помогу вам записаться на консультацию к Юлии — психологу и арт-терапевту.\n\n"
-        "Это займёт буквально минуту. Как вас зовут?",
+        "Привет! Я Юлия — психолог и арт-терапевт.\n\n"
+        "Рада, что вы написали. Давайте познакомимся — как вас зовут?",
         reply_markup=ReplyKeyboardRemove(),
     )
     return STATE_NAME
@@ -79,8 +79,8 @@ async def got_time(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
 
     # Ответ клиенту
     await update.message.reply_text(
-        f"Спасибо, {name}! Юлия получила вашу заявку и свяжется с вами в ближайшее время ✨\n\n"
-        "А пока можно заглянуть в её Telegram-канал с заметками о психологии:\n"
+        f"Спасибо, {name}! Я получила вашу заявку и свяжусь с вами в ближайшее время ✨\n\n"
+        "А пока загляните в мой канал с заметками о психологии:\n"
         "https://t.me/martherapy"
     )
     return ConversationHandler.END
