@@ -79,9 +79,8 @@ async def got_time(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
 
     # Ответ клиенту
     await update.message.reply_text(
-        f"Спасибо, {name}! Я получила вашу заявку и свяжусь с вами в ближайшее время ✨\n\n"
-        "А пока загляните в мой канал с заметками о психологии:\n"
-        "https://t.me/martherapy"
+        f"Спасибо, {name}! Ответы записала 🌿\n\n"
+        "Напишу вам с аккаунта @juulymart, чтобы подтвердить запись 🫶"
     )
     return ConversationHandler.END
 
