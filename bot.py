@@ -64,17 +64,20 @@ async def got_time(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     tg_link = f"@{user.username}" if user.username else f"tg://user?id={user.id}"
 
     # Уведомление для Юлии
+    def esc(s: str) -> str:
+        return s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+
     admin_text = (
-        "🌸 *Новая заявка с сайта*\n\n"
-        f"*Имя:* {name}\n"
-        f"*Запрос:* {request}\n"
-        f"*Удобное время:* {time}\n"
-        f"*Telegram:* {tg_link}"
+        "🌸 <b>Новая заявка с сайта</b>\n\n"
+        f"<b>Имя:</b> {esc(name)}\n"
+        f"<b>Запрос:</b> {esc(request)}\n"
+        f"<b>Удобное время:</b> {esc(time)}\n"
+        f"<b>Telegram:</b> {esc(tg_link)}"
     )
     await context.bot.send_message(
         chat_id=ADMIN_CHAT_ID,
         text=admin_text,
-        parse_mode="Markdown",
+        parse_mode="HTML",
     )
 
     # Ответ клиенту
